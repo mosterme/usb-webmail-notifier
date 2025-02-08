@@ -4,39 +4,41 @@ DIR=/sys/class/leds/
 DEV=dream_cheeky
 
 MAX=63
-OFF=0
-VAL=10
+OFF="0 0 0"
 
-RED=$(find $DIR -name $DEV??red)/brightness
-GREEN=$(find $DIR -name $DEV??green)/brightness
-BLUE=$(find $DIR -name $DEV??blue)/brightness
+RED="60 0 0"
+GREEN="0 60 0"
+BLUE="0 0 60"
 
-if [[ -e $RED ]] && [[ -e $GREEN ]] && [[ -e $BLUE ]]
+LED_R=$(find $DIR -name $DEV??red)/brightness
+LED_G=$(find $DIR -name $DEV??green)/brightness
+LED_B=$(find $DIR -name $DEV??blue)/brightness
+
+function glow {
+    echo $(( $1 < $MAX ? $1 : $MAX )) > $LED_R
+    echo $(( $2 < $MAX ? $2 : $MAX )) > $LED_G
+    echo $(( $3 < $MAX ? $3 : $MAX )) > $LED_B
+    sleep ${4:-1}
+}
+
+if [[ -e $LED_R ]] && [[ -e $LED_G ]] && [[ -e $LED_B ]]
 then
     echo device found $DIR$DEV
     echo
-    echo $RED
-    echo $GREEN
-    echo $BLUE
+    echo $LED_R
+    echo $LED_G
+    echo $LED_B
     echo
     echo -n test
-    sleep 1
     echo -n .
-    echo $VAL > $RED
-    sleep 1
+    glow $RED
     echo -n .
-    echo $OFF > $RED
-    echo $VAL > $GREEN
-    sleep 1
+    glow $GREEN
     echo -n .
-    echo $OFF > $GREEN
-    echo $VAL > $BLUE
-    sleep 1
-    echo -n .
-    echo $OFF > $BLUE
-    sleep 1
-    echo -n .
+    glow $BLUE
+    glow $OFF 0
     echo done
 else
-    echo device $DIR$DEV not found.
+    echo device $DIR$DEV not found. >&2
+    exit 1
 fi
