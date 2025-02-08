@@ -1,0 +1,42 @@
+#!/bin/bash
+
+DIR=/sys/class/leds/
+DEV=dream_cheeky
+
+MAX=63
+OFF=0
+VAL=10
+
+RED=$(find $DIR -name $DEV??red)/brightness
+GREEN=$(find $DIR -name $DEV??green)/brightness
+BLUE=$(find $DIR -name $DEV??blue)/brightness
+
+if [[ -e $RED ]] && [[ -e $GREEN ]] && [[ -e $BLUE ]]
+then
+    echo device found $DIR$DEV
+    echo
+    echo $RED
+    echo $GREEN
+    echo $BLUE
+    echo
+    echo -n test
+    sleep 1
+    echo -n .
+    echo $VAL > $RED
+    sleep 1
+    echo -n .
+    echo $OFF > $RED
+    echo $VAL > $GREEN
+    sleep 1
+    echo -n .
+    echo $OFF > $GREEN
+    echo $VAL > $BLUE
+    sleep 1
+    echo -n .
+    echo $OFF > $BLUE
+    sleep 1
+    echo -n .
+    echo done
+else
+    echo device $DIR$DEV not found.
+fi
