@@ -23,21 +23,15 @@ function glow {
 
 if [[ -e $LED_R ]] && [[ -e $LED_G ]] && [[ -e $LED_B ]]
 then
-    echo device found $DIR$DEV
-    echo
-    echo $LED_R
-    echo $LED_G
-    echo $LED_B
-    echo
-    echo -n test
-    echo -n .
+    echo 💡 device found $DIR$DEV
+    [[ $silent ]] || echo -n 🚥 running test .
     glow $RED
-    echo -n .
+    [[ $silent ]] || echo -n .
     glow $GREEN
-    echo -n .
+    [[ $silent ]] || echo -n .
     glow $BLUE
+    [[ $silent ]] || echo . done
     glow $OFF 0
-    echo done
 else
     echo device $DIR$DEV not found. >&2
     exit 1
