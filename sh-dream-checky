@@ -10,7 +10,7 @@ response=$(openssl s_client -crlf -connect $IMAPHOST:993 -quiet 2> /dev/null < $
 
 exists=$(echo "$response" | grep EXISTS | awk '{print $2}')
 recent=$(echo "$response" | grep RECENT | awk '{print $2}')
-unseen=$(echo "$response" | grep UNSEEN | awk '{print $5}' | sed 's/)//' | tr -d '\r')
+unseen=$(echo "$response" | grep UNSEEN | awk '{print $5}' | tr -d '\r)')
 
 echo "📨 $exists total messages, $unseen unseen, $recent recent"
 
