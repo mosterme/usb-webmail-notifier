@@ -1,0 +1,22 @@
+#!/bin/bash
+
+IMAPCONF=/etc/mail.conf
+IMAPHOST=imap.gmail.com
+
+silent=1
+source $(dirname $0)/sh-dream-cheeky
+
+response=$(openssl s_client -crlf -connect $IMAPHOST:993 -quiet 2> /dev/null < $IMAPCONF)
+
+exists=$(echo "$response" | grep EXISTS | awk '{print $2}')
+recent=$(echo "$response" | grep RECENT | awk '{print $2}')
+unseen=$(echo "$response" | grep UNSEEN | awk '{print $5}' | sed 's/)//' | tr -d '\r')
+
+echo "📨 $exists total messages, $unseen unseen, $recent recent"
+
+if (( $unseen > 0 ))
+then
+  glow 30 20 0
+else
+  glow $OFF
+fi
