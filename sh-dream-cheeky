@@ -10,6 +10,20 @@ RED="60 0 0"
 GREEN="0 60 0"
 BLUE="0 0 60"
 
+CYAN="0 60 60"
+YELLOW="60 60 0"
+MAGENTA="60 0 60"
+WHITE="60 60 60"
+
+AQUA="0 30 60"
+LIME="30 60 0"
+MAUVE="30 0 60"
+ORANGE="60 30 0"
+PURPLE="60 0 30"
+TEAL="0 60 30"
+
+MELLOW="30 20 0"
+
 LED_R=$(find $DIR -name $DEV??red)/brightness
 LED_G=$(find $DIR -name $DEV??green)/brightness
 LED_B=$(find $DIR -name $DEV??blue)/brightness

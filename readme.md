@@ -1,5 +1,5 @@
-Dream Cheeky WebMail Notifier
-=============================
+Dream Cheeky USB WebMail Notifier
+=================================
 
 Shell scripts to control the [Dream Cheeky WebMail Notifier](https://web.archive.org/web/20130701042120/http://dreamcheeky.com/webmail-notifier) or [getDigital USB Mail Melder](https://www.getdigital.de/pages/offlineprodukt/usb-mail-melder).
 
