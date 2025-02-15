@@ -1,7 +1,7 @@
 Dream Cheeky USB WebMail Notifier
 =================================
 
-Shell scripts to control the [Dream Cheeky WebMail Notifier](https://web.archive.org/web/20130701042120/http://dreamcheeky.com/webmail-notifier) or [getDigital USB Mail Melder](https://www.getdigital.de/pages/offlineprodukt/usb-mail-melder).
+Bash scripts to control the [Dream Cheeky WebMail Notifier](https://web.archive.org/web/20130701042120/http://dreamcheeky.com/webmail-notifier) or [getDigital USB Mail Melder](https://www.getdigital.de/pages/offlineprodukt/usb-mail-melder).
 
 ![Orange](img/m860.jpg)
 ![Green](img/m080.jpg)
@@ -19,7 +19,7 @@ See also [WebMail Notifier Linux driver (Dream Cheeky)](https://github.com/danie
 sh-dream-cheeky
 ---------------
 
-Shell script to test the device. If a device is found, it will light up in red, green and blue.
+Bash script to test the device. If a device is found, it will light up in red, green and blue.
 
 ```
 $ sudo sh-dream-cheeky
@@ -33,7 +33,7 @@ $ sudo sh-dream-cheeky
 sh-dream-checky
 ---------------
 
-Shell script to check for emails and control of the USB lamp. It uses sh-dream-cheeky.
+Bash script to check for emails and control of the USB lamp. It uses sh-dream-cheeky.
 
 ```
 $ sudo sh-dream-checky
