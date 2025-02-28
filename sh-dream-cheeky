@@ -28,6 +28,10 @@ LED_R=$(find $DIR -name $DEV??red)/brightness
 LED_G=$(find $DIR -name $DEV??green)/brightness
 LED_B=$(find $DIR -name $DEV??blue)/brightness
 
+function dim {
+    glow $(($1/2)) $(($2/2)) $(($3/2)) ${4:1}
+}
+
 function glow {
     echo $(( $1 < $MAX ? $1 : $MAX )) > $LED_R
     echo $(( $2 < $MAX ? $2 : $MAX )) > $LED_G
