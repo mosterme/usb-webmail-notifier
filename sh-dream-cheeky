@@ -29,7 +29,7 @@ LED_G=$(find $DIR -name $DEV??green)/brightness
 LED_B=$(find $DIR -name $DEV??blue)/brightness
 
 function dim {
-    glow $(($1/2)) $(($2/2)) $(($3/2)) ${4:1}
+    glow $(($1/2)) $(($2/2)) $(($3/2)) ${4:-1}
 }
 
 function glow {
