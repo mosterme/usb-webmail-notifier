@@ -10,13 +10,13 @@ Bash scripts to control the [Dream Cheeky WebMail Notifier](https://web.archive.
 
 The scripts use the [kernel subsystem](https://www.kernel.org/doc/html/latest/subsystem-apis.html) device files as described in [LED handling under Linux](https://www.kernel.org/doc/html/latest/leds/leds-class.html).
 
-Successfully tested on [openSUSE Tumbleweed](https://get.opensuse.org/tumbleweed/) and on [Raspbian GNU/Linux 12 (bookworm)](https://www.raspberrypi.com/software/).
+Successfully tested on [openSUSE Tumbleweed](https://get.opensuse.org/tumbleweed/), [Debian (trixie)](https://www.debian.org/) and [Raspberry Pi OS](https://www.raspberrypi.com/software/).
 
 See also [WebMail Notifier Linux driver (Dream Cheeky)](https://github.com/danielkaefer/usblamp) for a more complete solution.
 
 &#160;
 
-sh-dream-cheeky
+bin / sh-dream-cheeky
 ---------------
 
 Bash script to test the device. If a device is found, it will light up in red, green and blue.
@@ -30,7 +30,7 @@ $ sudo sh-dream-cheeky
 
 &#160;
 
-sh-dream-checky
+bin / sh-dream-checky
 ---------------
 
 Bash script to check for emails and control of the USB lamp. It uses sh-dream-cheeky.
@@ -44,7 +44,7 @@ $ sudo sh-dream-checky
 
 &#160;
 
-mail.conf
+etc / mail.conf
 ---------------
 Imap script to login and check for emails. Copy the file to /etc and put in your email and password.
 
