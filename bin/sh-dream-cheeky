@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR=/sys/class/leds/
+DIR=/sys/class/leds
 DEV=dream_cheeky
 
 MAX=63
@@ -48,7 +48,7 @@ function pulse {
 
 if [[ -e $LED_R ]] && [[ -e $LED_G ]] && [[ -e $LED_B ]]
 then
-    echo 💡 device found $DIR$DEV
+    echo 💡 device found $DIR/$DEV
     [[ $silent ]] || echo -n 🚥 running test .
     glow $RED
     [[ $silent ]] || echo -n .
@@ -58,6 +58,6 @@ then
     [[ $silent ]] || echo . done
     glow $OFF 0
 else
-    echo device $DIR$DEV not found. >&2
+    echo device $DIR/$DEV not found. >&2
     exit 1
 fi
